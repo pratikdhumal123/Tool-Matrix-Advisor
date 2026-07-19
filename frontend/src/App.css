@@ -163,7 +163,7 @@
 
 .matrix-page {
   flex: 1;
-  padding: 48px 56px 28px;
+  padding: 36px 56px 28px;
 }
 
 .advisor-list-header,
@@ -357,6 +357,8 @@
 
 .question-page-headline {
   margin-right: 72px;
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 20px;
 }
 
 .question-page-headline > div:first-child {
@@ -368,8 +370,8 @@
 }
 
 .rich-text-block p {
-  color: #4d4d4d;
-  line-height: 1.5;
+  color: #4c4c4c;
+  line-height: 1.48;
 }
 
 .rich-text-block p + p,
@@ -386,17 +388,18 @@
 .rich-text-block table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #f2f2f2;
 }
 
 .rich-text-block td,
 .rich-text-block th {
-  border: 1px solid #535353;
-  padding: 8px 10px;
+  border: 1px solid #6c6c6c;
+  padding: 9px 10px;
   vertical-align: top;
-  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
-  font-size: 0.98rem;
-  line-height: 1.12;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.15;
 }
 
 .rich-text-block td:first-child,
@@ -421,7 +424,7 @@
 .question-line > p {
   flex: 1;
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.03rem;
 }
 
 .answer-options {
@@ -451,14 +454,23 @@
 }
 
 .outcome-panel {
-  border-top: 1px solid #e5e5e5;
-  padding-top: 24px;
+  margin: 24px auto 0;
+  max-width: 1020px;
+  background: #e6e6e8;
+  border: 1px solid #dadadd;
+  border-radius: 4px;
+  padding: 34px 36px;
 }
 
 .outcome-panel h2 {
-  margin: 0 0 18px;
-  font-size: 1.7rem;
+  margin: 0 0 16px;
+  font-size: 1.55rem;
   font-weight: 500;
+  color: #4a4a4a;
+}
+
+.outcome-panel .rich-text-block a {
+  color: #6a9fda;
 }
 
 .active-question-row {
