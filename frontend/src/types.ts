@@ -1,21 +1,3 @@
-export interface Order {
-  id: number
-  order_ref: string
-  customer_name: string
-  advisor_name: string
-  counter_name: string
-  counter_code: string
-  item_name: string
-  quantity: number
-  total_amount: number
-  status: 'PENDING' | 'READY' | 'COLLECTED'
-  pin: string | null
-  qr_payload: string | null
-  qr_generated_at: string | null
-  created_at: string
-  collected_at: string | null
-}
-
 export interface DashboardSummary {
   total_orders: number
   ready_orders: number
@@ -27,20 +9,6 @@ export interface DashboardSummary {
 
 export interface DashboardResponse {
   summary: DashboardSummary
-  spotlight: Order[]
-  recent_collections: Order[]
-}
-
-export interface GenerateCollectionResponse {
-  order: Order
-}
-
-export interface CollectOrderRequest {
-  pin: string
-}
-
-export interface CollectOrderResponse {
-  order: Order
 }
 
 export type AdvisorAnswer = 'YES' | 'NO' | null

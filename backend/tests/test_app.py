@@ -12,14 +12,11 @@ sys.path.append(str(ROOT))
 from app.db.database import Base, SessionLocal, engine  # noqa: E402
 from app.main import app  # noqa: E402
 from app.services.advisor_service import ADVISOR_CATALOG  # noqa: E402
-from app.services.order_service import seed_orders  # noqa: E402
 
 
 def _reset_database() -> None:
     Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
-    with SessionLocal() as session:
-      seed_orders(session)
 
 
 def test_healthcheck() -> None:
@@ -29,26 +26,6 @@ def test_healthcheck() -> None:
 
     assert response.status_code == 200
     assert response.json() == {'status': 'ok'}
-
-
-def test_collection_flow() -> None:
-    _reset_database()
-    with TestClient(app) as client:
-        orders_response = client.get('/api/v1/orders')
-        orders = orders_response.json()
-        order = next(item for item in orders if item['status'] == 'READY')
-
-        generated_response = client.post(f"/api/v1/orders/{order['id']}/generate-collection")
-        generated_payload = generated_response.json()['order']
-
-        collect_response = client.post(
-            '/api/v1/orders/collect/by-pin',
-            json={'pin': generated_payload['pin']},
-        )
-
-    assert generated_response.status_code == 200
-    assert collect_response.status_code == 200
-    assert collect_response.json()['order']['status'] == 'COLLECTED'
 
 
 def test_advisor_answers_are_readable_and_updatable() -> None:

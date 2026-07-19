@@ -5,15 +5,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.routes import router
 from app.core.config import settings
-from app.db.database import SessionLocal, init_db
-from app.services.order_service import seed_orders
+from app.db.database import init_db
 
 
 @asynccontextmanager
 async def lifespan(_: FastAPI):
     init_db()
-    with SessionLocal() as session:
-        seed_orders(session)
     yield
 
 
