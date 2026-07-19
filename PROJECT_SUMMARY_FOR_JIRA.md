@@ -1,4 +1,4 @@
-# More Advisor Sales Clone - Project Documentation
+# More Advisor Project Clone - Project Documentation
 
 ## 1. Project Overview
 This project is a full-stack advisor workflow application inspired by the Cisco Data Advisor experience. It helps users answer guided questions and reach the correct outcome content based on their responses.
@@ -97,10 +97,8 @@ Outcome sections are displayed as rich HTML content. Table styling was tuned to 
 - Browser checks: question preservation and outcome rendering confirmed
 
 ### 6.4 Docker Validation
-- Docker engine connectivity: successful
-- Docker Compose build: successful
-- Containers started: successful
-- Frontend and backend reachable on exposed ports
+- Docker Compose configuration: validated
+- Local advisor runtime: verified via backend health/advisors endpoints and frontend page load
 
 ## 7. Runtime Access
 - Frontend: http://127.0.0.1:8080
@@ -119,4 +117,4 @@ If you want to keep implementation evidence together, capture these screenshots:
 5. API health response.
 
 ## 10. Current Project State
-The project is implemented, tested, and operational. Core advisor workflow behavior, UI rendering, API logic, and containerized deployment are all validated.
+The project is implemented, tested, and operational. Core advisor workflow behavior, UI rendering, and API logic are validated.

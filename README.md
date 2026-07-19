@@ -1,6 +1,6 @@
-# More Advisor Sales Clone
+# More Advisor Project Clone
 
-This project is a fresh full-stack clone inspired by the sales and QR collection flow from your screenshots. It focuses on an advisor-only workflow: track orders, generate collection QR codes, collect orders by pin, and import sales rows from CSV or Excel files.
+This project is a full-stack advisor workflow application inspired by the Cisco Data Advisor experience. It provides an advisor list, guided YES/NO question flow, dynamic branching, and rich outcome guidance content.
 
 ## Stack
 
@@ -39,21 +39,15 @@ docker compose up --build
 
 Frontend: http://localhost:8080
 
-## Import format
+## API
 
-The backend accepts `.csv` and `.xlsx` files through `POST /api/v1/orders/import`.
+The backend exposes advisor-focused endpoints under `/api/v1`:
 
-Supported column names:
-
-- `order_ref` or `Order Ref`
-- `customer_name` or `Customer Name`
-- `advisor_name` or `Advisor Name`
-- `counter_name` or `Counter Name`
-- `counter_code` or `Counter Code`
-- `item_name` or `Item Name`
-- `quantity`
-- `total_amount` or `Total`
-- `status`
+- `GET /health`
+- `GET /advisors`
+- `GET /advisors/{advisor_id}`
+- `PUT /advisors/{advisor_id}/questions/{question_id}`
+- `DELETE /advisors/{advisor_id}/answers`
 
 ## CI/CD
 
@@ -67,4 +61,3 @@ GitHub Actions in `.github/workflows/ci.yml` covers:
 
 - Seed data is included so the UI works immediately.
 - The project is built from screenshots only because no original Excel or source project was present in the workspace.
-- Once you add the real Excel file, the importer can be adjusted to match its exact headers and business rules.
